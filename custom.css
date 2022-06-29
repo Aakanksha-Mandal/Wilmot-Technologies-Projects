@@ -1,0 +1,334 @@
+html,body {
+margin:0;
+padding:0;
+overflow-x:hidden;
+}
+
+.background{
+    background-image: url('https://www.wilmottech.com/wp-content/uploads/2017/11/Header_Image_02.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+.header{
+    background: rgba(238,240,247,0.4);    
+}
+
+.logo{
+    float: left;
+    padding-bottom: 15px;
+    padding-left:33px;
+    padding-top: 8px;
+}
+
+.main-menu{
+	list-style: none;
+    padding-top: 30px;   
+}
+
+.main-menu li{
+    display: block;
+    padding-left: 15px;
+    float: right;
+}
+
+.main-menu li a{
+    text-decoration: none;
+    color: #000000;
+    font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 600;
+    padding-right: 30px;
+}
+
+.main-menu li .active{
+    color: #2a58b6;
+}
+
+.header1-sec2{
+    color: #0c2d8b;
+    text-align: left;
+    padding-top: 12%;
+    padding-left: 4%;
+    display: block;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700;
+    font-size: 80px;  
+}
+
+.header2-sec2{
+    color: #0c2d8b;
+    text-align: left;
+    padding-bottom: 2%;
+    padding-left: 4%;
+    display: block;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700;
+    font-size: 80px;  
+}
+
+.span{
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #666;    
+    text-align: left;
+    display: block;
+    padding-bottom: 1%;
+    padding-left: 4%;
+}
+
+.learn-more{
+    color: white;
+    background: #00000000;
+    list-style: none;
+    text-decoration: none;
+    text-align: left;
+    display: inline-block;
+    font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.5mm;
+    padding: 5px 10px;
+    margin-left: 4%;
+}
+
+.learn-more a, a:hover{
+    color: #fff; 
+    background: #80808027;
+}
+
+.picture-sec3{
+    width: auto; 
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding-top: 25%;
+}
+
+strong {
+    font-weight: 700;
+}
+
+.col-7 h2{
+    color: #333;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 45px;
+    font-weight: 200;
+    padding-top: 5%;
+    text-align: left;
+    display: block;
+}
+
+.sec-3-span{
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+    line-height: 7mm;
+    display: block;
+    padding-bottom: 2%;
+}
+
+.sec-3-span2{
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    text-align: left;
+    line-height: 7mm;
+    display: block;
+    padding-bottom: 8%;
+}
+
+.sec-3-box{   
+    background: #2857b6;
+    border-radius: 20px;
+    padding-top: 30px; 
+    padding-bottom: 100px;
+    padding-right: 45px;
+    padding-left: 30px;
+    width: 90%;
+    height: 40%; 
+}
+
+.sec-3-box h3{
+    color: white;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    text-align: left;
+    display: block;
+}
+
+.sec-3-box-span{
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: white;
+    text-align: left;
+    line-height: 7mm;
+    display: block;
+    padding-bottom: 2%; 
+}
+
+.sec-4-title h2{
+    color: #333;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 45px;
+    font-weight: 200;
+    padding-top: 15%;
+    padding-bottom: 5%;
+    text-align: center;
+    display: block;
+}
+
+.sec-4-content h3{
+    color: #333;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+}
+
+.sec-5-title h2{
+    color: #333;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 45px;
+    font-weight: 200;
+    padding-top: 16%;
+    padding-bottom: 5%;
+    text-align: center;
+    display: block;
+}
+
+.box h4{
+    color: #333;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+}
+
+.box p{
+    color: #aaa;
+    font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+    padding-bottom: 7px;
+}
+
+.box-special h4{
+    color: #333;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+}
+
+.box-special p{
+    color: #aaa;
+    font-family: 'PT Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+    padding-bottom: 2px;
+}
+
+.box-special{
+    display: inline-block;
+    background: #ffffff;
+    padding: 15px 60px;
+    box-shadow: 0px 6px 31px -8px rgb(0 0 0 / 28%);
+}
+
+.box{
+    display: inline-block;
+    background: #ffffff;
+    padding: 25px 60px;
+    box-shadow: 0px 6px 31px -8px rgb(0 0 0 / 28%);
+}
+
+.sec-6-box{   
+    background: #2857b6;
+    margin-left: 20px;
+    margin-top: 95px;
+    padding-top: 85px;
+    width: 90%;
+    height: 90%; 
+}
+
+.sec-6-content h4{
+    color: white;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: left;
+    display: block; 
+    padding-left: 10px;
+}
+
+.sec-6-content span{
+    color: white;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.7em;
+    text-align: left;
+    display: block;
+    padding-left: 10px;
+    padding-bottom: 50px;
+}
+
+.sec-6-content p{
+    color: white;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.7em;
+    text-align: left;
+    display: block;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.icon1{
+    padding-left: 17px;
+    padding-bottom: 143px;
+    font-size: 20px;
+}
+
+.icon2{
+    padding-left: 17px;
+    padding-bottom: 143px;
+    font-size: 20px;
+}
+
+.icon3{
+    padding-left: 17px;
+    padding-bottom: 78px;
+    font-size: 20px;
+}
+
+.icon4{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.sec-7-contact-form{  
+    margin-left: 0px;
+    margin-top: 95px;
+    padding-top: 85px;
+    width: 50%;
+    height: 90%; 
+}
