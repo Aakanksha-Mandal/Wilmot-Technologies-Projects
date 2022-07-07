@@ -14,7 +14,7 @@ html,body {
     }
     
     .header{
-        background: rgba(238,240,247,0.4);    
+        background: rgba(238,240,247,0.4);  
     }
     
     .logo{
@@ -840,17 +840,18 @@ html,body {
       }
     
       .sec-6-box {
-          margin-left: 70px;
+          margin-left: 45px;
           float: none;
           padding: 0px;
       }
     
       .contact-input input{
-          padding-right: 50px;
+          padding-right: 100px;
       }
     
       .contact-input textarea{
-          padding-right: 90px;
+          padding-right: 100px;
+          padding-bottom: 50px;
       }
     
       .picture-sec-7 {
