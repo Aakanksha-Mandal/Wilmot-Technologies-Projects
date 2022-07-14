@@ -11,4 +11,7 @@ getUsers(1)
 
 /* Usefule Website 
 https://w3collective.com/fetch-display-api-data-javascript/
+
+API Link
+https://reqres.in/api/users?page=1&per_page=10
 */
