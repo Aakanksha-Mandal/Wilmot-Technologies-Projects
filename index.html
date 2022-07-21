@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link href="custom.css" rel="stylesheet">
-        <title>API DATA</title>
-        <h1 class>USER DATA</h1>
-    </head>
-    <body>
-        <div id="app"></div>
-        <div id="pagination" class="pagination"></div>
-        <div id="profileCards"></div>
-        <div id="overlay" class="hide">
-          <div class="inner-overlay">
-          <div class="card" id="card">
-            <div class="card-header">
-                <div class="title" id="user_title"></div>
-                <button onclick="closeUserDetails()">&times;</button>
-            </div>
-            <div class="card-body">
-              <div id="profile-info" class="show">
-                <div class="profile-info">
-                  <p class="user_info"><img src="" alt="" id="user_avatar"/></p>
-                  <p class="user_info">First Name: <span id="user_first_name"></span></p>
-                  <p class="user_info">Last Name: <span id="user_last_name"></span></p>
-                  <p class="user_info">Email: <span id="user_email"></span></p>
-                  <button onclick="toggleUserInfo('profile-edit', 'profile-info')">Update</button>
-                </div>
-              </div>     
-              <div id="profile-edit" class="hide">
-                <div class="profile-edit">
-                  <label>First Name</label>
-                  <input type="text" class="user_info" id="form_first_name" placeholder="First Name" value=""/>
-                  <label>Last Name</label>
-                  <input type="text" class="user_info" id="form_last_name" placeholder="Last Name"/>
-                  <label>Email Name</label>
-                  <input type="text" class="user_info" id="form_email" placeholder="Email"/>
-                  <button onclick="toggleUserInfo('profile-info', 'profile-edit')">Back</button>
-                  <button type="submit">Submit</button>
-                </div>
-              </div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="custom.css">
+    <title>To-Do List</title>
+    <h1>To-Do List</h1>
+</head>
+<body>
+    <main>
+        <div class="box">
+          <div class="inputs">
+            <input type="text" id="task" autofocus placeholder="Add Task...">
+            <input type="date" id="date"> 
+            <input type="time" id="time">
+            <input type="text" id="priority" placeholder="Priority" list="priorityList">
+            <datalist id="priorityList">
+              <option value="High"></option>
+              <option value="Medium"></option>
+              <option value="Low"></option>
+            </datalist>
+            <input type ="text" id="details" placeholder="Details">
+            <button id="add_btn">Add</button>
+            <ul id="to-do-box"></ul>
+            <table id="table">
+              <thead>
+              <tr>
+                  <th>To-Do</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Priority</th>
+                  <th>Details</th>
+                  <th></th>
+              </tr>
+              </thead>
+              <tbody></tbody>
+          </table>
           </div>
         </div>
-        </div>
-    </body>
+    </main>
+    <script src="https://kit.fontawesome.com/bf520e6492.js" crossorigin="anonymous"></script>
     <script src="custom.js"></script>
+</body>
 </html>
