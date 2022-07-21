@@ -68,12 +68,12 @@ generateUsers()
 
 function showUserDetails(user_id){
     const user_details = users.filter((user) => {
-        return user.id == user_id;
+        return user.id == user_id
     })[0];
 
     if (user_id != user_details.id) {
         alert("ERROR: invalid user")
-        return;
+        return
     }
 
     console.log(user_details);
@@ -83,6 +83,11 @@ function showUserDetails(user_id){
     document.getElementById('user_first_name').innerHTML = user_details.first_name
     document.getElementById('user_last_name').innerHTML = user_details.last_name
     document.getElementById('user_email').innerHTML = user_details.email
+
+    //User Form
+    document.getElementById('form_first_name').value = user_details.first_name
+    document.getElementById('form_last_name').value = user_details.last_name
+    document.getElementById('form_email').value = user_details.email
 }
 
 function closeUserDetails() {
@@ -97,47 +102,4 @@ function toggleUserInfo(ele_show, ele_hide){
     showEle.classList.add('show')
     hideEle.classList.remove('show')
     hideEle.classList.add('hide')
-
-    // if (showEle.classList.contains('show')) {
-        // updateUserDetails(user.id)
-    // }
 }
-
-function updateUserDetails(user_id) {
-    const user_info = users.filter((user) => {
-        return user.id == user_id;
-    })[0];
-
-    if (user_id != user_info.id) {
-        alert("ERROR: invalid user")
-        return;
-    }
-
-    console.log(user_info);
-    document.getElementById('overlay').classList = "show"
-    document.getElementById('form_title').innerHTML = user_info.first_name+" "+user_info.last_name
-    document.getElementById('form_first_name').setAttribute('value', user_info.first_name)
-    document.getElementById('form_last_name').innerHTML = user_info.last_name
-    document.getElementById('form_email').innerHTML = user_info.email
-}
-/* Usefule Website 
-https://w3collective.com/fetch-display-api-data-javascript/
-
-API Link
-https://reqres.in/api/users?page=1&per_page=10
-
-https://www.geeksforgeeks.org/how-to-use-the-javascript-fetch-api-to-get-data/#:~:text=Approach%3A%20First%20make%20the%20necessary,by%20await%20fetch()%20method.
-
-
-async function getUsers(page_no, per_page){
-	let response = await axios('https://reqres.in/api/users?page=' + page_no + '&per_page=' + per_page)
-    
-    var data = await response.json()
-    console.log(data)
-	response?.data.data.map((user, index)=>{
-		console.log(user.first_name)
-	})
-}
-
-getUsers(1)
-*/
