@@ -19,22 +19,14 @@ const addToDo = () => {
     const tableBody = table.tBodies[0]
     tableBody.innerHTML += `
             <tr>
-                <td>${task.value}</td>
-                <td>${date.value}</td> 
-                <td>${time.value}</td>
-                <td>${priority.value}</td>
-                <td>${details.value}</td>
+                <td onClick="doneToDoItem(this)">${task.value}</td>
+                <td onClick="doneToDoItem(this)">${date.value}</td> 
+                <td onClick="doneToDoItem(this)">${time.value}</td>
+                <td onClick="doneToDoItem(this)">${priority.value}</td>
+                <td onClick="doneToDoItem(this)">${details.value}</td>
                 <td class="remove_btn"><i class="fas fa-times" onclick="removeTodoItem(this.parentNode.parentNode)"></i></td>
             </tr>`
-    
-           
 
-    tableBody.querySelector("tr").addEventListener(
-        "click",
-        function() {
-            this.classList.toggle("done")
-        }
-    )
    /* WAY 2 TO DELETE LIST ITEM
     const closeBtn = tableBody.querySelector("tr").querySelector("i")
     
@@ -45,10 +37,13 @@ const addToDo = () => {
         }
     ) 
    */
-    
 }
 
-function removeTodoItem(ele){
+function doneToDoItem(ele) {
+    ele.parentNode.classList.toggle("done")
+}
+
+function removeTodoItem(ele) {
     ele.remove()
 }
 
