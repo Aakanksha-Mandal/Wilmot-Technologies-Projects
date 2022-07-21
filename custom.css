@@ -1,173 +1,173 @@
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 #app {
-    float: left;
-    margin-left: 30%;
+  float: left;
+  margin-left: 30%;
 }
 
 .row {
-    align-items: center;
-    justify-content: center;
-    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
 }
 
 .col {
-      padding: 1rem;
-      margin-bottom: -5%;
-      display: inline-block;
-      text-align: center;
+    padding: 1rem;
+    margin-bottom: -5%;
+    display: inline-block;
+    text-align: center;
 }
 
 .pagination {
-    text-align: center;
+  text-align: center;
 }
-  
+
 .pagination button{
-    cursor: pointer;
-    background-color: grey;
-    text-align: center;
-    padding: 8px 16px;
-    transition: background-color .3s;
-    margin-top: 3%;
-    margin-right: 1%;
+  cursor: pointer;
+  background-color: grey;
+  text-align: center;
+  padding: 8px 16px;
+  transition: background-color .3s;
+  margin-top: 3%;
+  margin-right: 1%;
 }
 
 *, *::after, *::before {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
-  #overlay {
-    position: fixed;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-  }
-  .inner-overlay{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+#overlay {
+  position: fixed;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+.inner-overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
-  .col button {
-    cursor: pointer;
-    background-color: #808080b3;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: background-color .3s;
-    height: 5vh;
-    margin-top: 2%;
-  }
-  
-  .card {
-    transition: 200ms ease-in-out;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 10;
-    background-color: white;
-    width: 50%;
-  }
-  
-  .card.active {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  
-  .card-header {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid black;
-  }
-  
-  .card-header .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .card-header .close-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .profile-info {
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    height: 20%;
-  }
+.col button {
+  cursor: pointer;
+  background-color: #808080b3;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: background-color .3s;
+  height: 5vh;
+  margin-top: 2%;
+}
 
-  .profile-info button {
-    cursor: pointer;
-    background-color: #808080b3;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: background-color .3s;
-    height: 5vh;
-    margin-top: 2%;
-  }
+.card {
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 50%;
+}
 
-  .profile-edit {
-    padding: 10px 15px;
-    display: grid;
-    align-items: center;
-    height: 20%;
-    justify-content: center;
-  }
+.card.active {
+  transform: translate(-50%, -50%) scale(1);
+}
 
-  .profile-edit label {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
+.card-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
 
-  .profile-edit input {
-    padding-right: 0px;
-    padding-bottom: 10px;
-  }
+.card-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
 
-  .profile-edit button {
-    cursor: pointer;
-    background-color: #808080b3;
-    text-align: center;
-    padding: 5px 5px;
-    transition: background-color .3s;
-    height: 5vh;
-    width: 60px;
-    margin-left: 50px;
-    margin-top: 5%;
-  }
+.card-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
 
-  .show{
-    display:block;
-  }
+.profile-info {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  height: 20%;
+}
 
-  .hide{
-    display: none;
-  }
+.profile-info button {
+  cursor: pointer;
+  background-color: #808080b3;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: background-color .3s;
+  height: 5vh;
+  margin-top: 2%;
+}
 
-  .user_info {
-    padding-right: 40px;
-    align-items: center;
-  }
+.profile-edit {
+  padding: 10px 15px;
+  display: grid;
+  align-items: center;
+  height: 20%;
+  justify-content: center;
+}
 
-  .update {
-    cursor: pointer;
-    background-color: #808080b3;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: background-color .3s;
-    height: 5vh;
-    margin-top: 2%;
-  }
+.profile-edit label {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profile-edit input {
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+
+.profile-edit button {
+  cursor: pointer;
+  background-color: #808080b3;
+  text-align: center;
+  padding: 5px 5px;
+  transition: background-color .3s;
+  height: 5vh;
+  width: 60px;
+  margin-left: 50px;
+  margin-top: 5%;
+}
+
+.show{
+  display:block;
+}
+
+.hide{
+  display: none;
+}
+
+.user_info {
+  padding-right: 40px;
+  align-items: center;
+}
+
+.update {
+  cursor: pointer;
+  background-color: #808080b3;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: background-color .3s;
+  height: 5vh;
+  margin-top: 2%;
+}
