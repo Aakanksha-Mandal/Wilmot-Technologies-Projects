@@ -12,7 +12,8 @@
     <main>
         <div class="box">
           <div class="inputs">
-            <input type="text" id="task" autofocus placeholder="Add Task...">
+            <h2>Add To-Do</h2>
+            <input type="text" id="task" autofocus placeholder="Add Task...">   
             <input type="date" id="date"> 
             <input type="time" id="time">
             <input type="text" id="priority" placeholder="Priority" list="priorityList">
@@ -23,6 +24,20 @@
             </datalist>
             <input type ="text" id="details" placeholder="Details">
             <button id="add_btn">Add</button>
+            <div class="filterInput">
+              <h2>Filters</h4>
+              <label class="filter">From <input type="date" id="dateFromFilter"></label>
+              <label class="filter">To <input type="date" id="dateToFilter"></label>
+              <label class="filter">From<input type="time" id="timeFromFilter"></label>
+              <label class="filter">To<input type="time" id="timeToFilter"></label>
+              <input class="filter" type="text" id="priorityFilter" placeholder="Priority" list="filterList">
+              <datalist id="filterList">
+                <option value="High"></option>
+                <option value="Medium"></option>
+                <option value="Low"></option>
+              </datalist>
+              <button id="filter_btn" onclick="filterResults('filterInput')">Filter</button>
+            </div>
             <ul id="to-do-box"></ul>
             <table id="table">
               <thead>
