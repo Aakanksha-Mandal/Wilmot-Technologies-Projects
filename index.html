@@ -30,13 +30,13 @@
               <label class="filter">To <input type="date" id="dateToFilter"></label>
               <label class="filter">From<input type="time" id="timeFromFilter"></label>
               <label class="filter">To<input type="time" id="timeToFilter"></label>
-              <input class="filter" type="text" id="priorityFilter" placeholder="Priority" list="filterList">
+              <input class="priorityFilter" type="text" id="priorityFilter" placeholder="Priority" list="filterList">
               <datalist id="filterList">
                 <option value="High"></option>
                 <option value="Medium"></option>
                 <option value="Low"></option>
               </datalist>
-              <button id="filter_btn" onclick="filterResults('filterInput')">Filter</button>
+              <button id="filter_btn" onclick="filterResults()">Filter</button>
             </div>
             <ul id="to-do-box"></ul>
             <table id="table">
