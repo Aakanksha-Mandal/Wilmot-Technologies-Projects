@@ -78,6 +78,11 @@ main {
     margin-left: 10px;
 }
 
+.priorityFilter { 
+    width: 50% !important;
+    display: inline-block !important;
+}
+
 .filterInput button {
     padding: 10px;
     font-size: 20px;
