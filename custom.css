@@ -130,8 +130,16 @@ table {
     top: 10px;
 }
 
-.done {
+.strike {
     text-decoration: line-through;
     color: black;
     background-color: #95a5a6 !important;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
