@@ -23,6 +23,7 @@ addButton.addEventListener(
     "click",
     function() {
         const todoItem = {
+            id: counter,
             task: task.value,
             date: date.value,
             time: time.value,
@@ -107,7 +108,7 @@ const generateTodoItem = (tableBody, todoItem) => {
                 <td class="timeInput" onClick="strikeToDoItem(this)">${todoItem.time}<div class="timePicker hide"><input type="time" id="timePicker"></div></td>
                 <td onClick="strikeToDoItem(this)">${todoItem.priority}</td>
                 <td onClick="strikeToDoItem(this)">${todoItem.details}</td>
-                <td class="save_btn"><div class="save_btn_wrap hide"><i class="fas fa-save" onclick="saveTodoItem(this)"></i></div></td>
+                <td class="save_btn"><div class="save_btn_wrap hide"><i class="fas fa-save" onclick="saveTodoItem(this)" data-id="${todoItem.id}"></i></div></td>
                 <td class="remove_btn"><i class="fas fa-times" onclick="removeTodoItem(this.parentNode.parentNode)"></i></td>
             </tr>`
 
@@ -239,6 +240,10 @@ function saveTodoItem(ele) {
     const priority = child_eles[3]
     const details = child_eles[4]
 
+    const todoItem_id = ele.parentNode.parentNode.parentNode.getAttribute('data-id');
+
+    console.log(todoItem_id)
+
     const todoItem = {
         task: task.innerText,
         date: date.childNodes[1].childNodes[0].value,
@@ -247,8 +252,22 @@ function saveTodoItem(ele) {
         details: details.innerText
     }
 
-    
-    save()
+    const todolist = localStorage.getItem('todoList')
+    let parsedValues = JSON.parse(todolist)
+    console.log(parsedValues)
+    let item_index = 0 
+    parsedValues.map((item, index)=>{
+        if(item.id == todoItem_id){
+            item_index = index;
+            return; 
+        }
+    })
+
+    parsedValues[item_index] = todoItem;
+    localStorage.setItem('todoList', JSON.stringify(parsedValues))
+
+    //save(todoItem)
+
     disableEdit(ele)
     
 }
