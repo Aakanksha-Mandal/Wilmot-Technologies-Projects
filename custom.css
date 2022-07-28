@@ -143,3 +143,17 @@ table {
 .hide {
     display: none;
 }
+
+#datePicker {
+    padding: 2px;
+    font-size: 18px;
+    width: 80%;
+    display: inline-block;
+}
+
+#timePicker {
+    padding: 2px;
+    font-size: 18px;
+    width: 92% ;
+    display: inline-block;
+}
