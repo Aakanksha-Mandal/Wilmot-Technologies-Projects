@@ -1,10 +1,13 @@
 let counter = 0
+let editOn = false
 let todoList = []
 const task = document.getElementById("task")
 const toDoBox = document.getElementById("to-do-box")
 const date = document.getElementById("date")
+const dateInput = document.getElementById("dateInput")
 const dataFilter = document.getElementById("dateFilter")
 const time = document.getElementById("time")
+const timeInput = document.getElementById("timeInput")
 const priority = document.getElementById("priority")
 const details = document.getElementById("details")
 const addButton = document.getElementById("add_btn")
@@ -19,20 +22,34 @@ let priorityRegex = /high|medium|low/i
 addButton.addEventListener(
     "click",
     function() {
-        validate()
+        const todoItem = {
+            task: task.value,
+            date: date.value,
+            time: time.value,
+            priority: priority.value,
+            details: details.value
+        }
+        //
+        const validation = validate(todoItem)
+        
+        //
+        if(validation){
+            addToDo(todoItem)
+        }
+
     }
 ) 
 
-function validate() {
-    if (task.value == "") {
+function validate(todoItem) {
+    if (todoItem.task == "") {
         alert("Task cannot be blank")
         return false
     }
-    if (date.value == "") {
+    if (todoItem.date == "") {
         alert("Date cannot be blank.")
         return false
     }
-    if (time.value == "") {
+    if (todoItem.time == "") {
         alert("Time cannot be blank.")
         return false
     }
@@ -40,21 +57,11 @@ function validate() {
         alert("Priority has to be high, medium, or low.")
         return false
     }
-    addToDo()
     return true
 }
 
 
-const addToDo = () => { 
-    const todoItem = {
-        id: counter,
-        task: task.value,
-        date: date.value,
-        time: time.value,
-        priority: priority.value,
-        details: details.value
-    }
-
+const addToDo = (todoItem) => { 
     todoList.push(todoItem)
     counter++
     const tableBody = table.tBodies[0]
@@ -96,8 +103,8 @@ const generateTodoItem = (tableBody, todoItem) => {
             <tr data-id="${todoItem.id}">
                 <td class="edit_btn"><i class="fas fa-edit" onclick="editTodoItem(this)"></i></td>
                 <td onClick="strikeToDoItem(this)">${todoItem.task}</td>
-                <td onClick="strikeToDoItem(this)">${getFormatedDate(todoItem.date)}</td> 
-                <td onClick="strikeToDoItem(this)">${todoItem.time}</td>
+                <td class="dateInput" onClick="strikeToDoItem(this)">${getFormattedDate(todoItem.date)}<div class="datePicker hide"><input type="date" id="datePicker" value=""></div></td> 
+                <td class="timeInput" onClick="strikeToDoItem(this)">${todoItem.time}<div class="timePicker hide"><input type="time" id="timePicker"></div></td>
                 <td onClick="strikeToDoItem(this)">${todoItem.priority}</td>
                 <td onClick="strikeToDoItem(this)">${todoItem.details}</td>
                 <td class="save_btn"><div class="save_btn_wrap hide"><i class="fas fa-save" onclick="saveTodoItem(this)"></i></div></td>
@@ -133,7 +140,8 @@ function filterResults() {
         timeTo: timeToFilter.value,
         priority: priorityFilter.value,
     }
-    if (filters.dataFrom == undefined && filters.dataTo == undefined && filters.timeFrom == "" && filters.timeTo == "" && filters.priority == "") {
+
+    if (filters.dataFrom == undefined && filters.dataTo == undefined && filters.timeFrom == undefined && filters.timeTo == undefined && filters.priority == "") {
         alert("Filter Options are all blank.")
         return
     }
@@ -141,16 +149,20 @@ function filterResults() {
     let filteredResults = todoList.filter((item, index) => {
         if (item.date == filters.dateFrom) {
             return true
-        } else if (item.date >= filters.dateFrom && item.date <= filters.dateTo) {
+        }
+        if (item.date >= filters.dateFrom && item.date <= filters.dateTo) {
             return true
-        } else if (item.date == filters.dateTo) {
+        } 
+        if (item.date == filters.dateTo) {
             return true
         }
         if (item.time == filters.timeFrom) {
             return true
-        } else if (item.time >= filters.timeFrom && item.time <= filters.timeTo) {
+        } 
+        if (item.time >= filters.timeFrom && item.time <= filters.timeTo) {
             return true
-        } else if (item.time == filters.timeTo) {
+        }
+        if (item.time == filters.timeTo) {
             return true
         }
         if (item.priority == filters.priority) {
@@ -164,7 +176,7 @@ function filterResults() {
        
 }
 
-function getFormatedDate(date){
+function getFormattedDate(date){
     let dateObj = new Date(date + "EST")
     let formattedDate = dateObj.toLocaleString("en-GB", {
         month: "long",
@@ -176,10 +188,7 @@ function getFormatedDate(date){
 
 
 function strikeToDoItem(ele) {
-    console.log(ele)
-    const isEditable = ele.getAttribute('contenteditable');
-    console.log(isEditable)
-    if(!isEditable){
+    if(editOn == "false"){
         ele.parentNode.classList.toggle("strike")
     }
 }
@@ -197,28 +206,73 @@ function editTodoItem(ele) {
     saveBtn.classList.remove('hide')
     saveBtn.classList.add('show')
     
+    const datePicker = ele.parentNode.parentNode.getElementsByClassName('datePicker')[0]
+    datePicker.classList.remove('hide')
+    datePicker.classList.add('show')
+
+    const timePicker = ele.parentNode.parentNode.getElementsByClassName('timePicker')[0]
+    timePicker.classList.remove('hide')
+    timePicker.classList.add('show')
+
     const child_eles = ele.parentNode.parentNode.childNodes
     for(let i = 0; i <= child_eles.length; i++) {
         const ele = child_eles[i]
-        if(ele?.nodeName  == 'TD' && ele?.className != "edit_btn" && ele?.className != "remove_btn" && ele?.className != "save_btn"){
+        if(ele?.nodeName  == 'TD' && ele?.className != "edit_btn" && ele?.className != "remove_btn" && ele?.className != "save_btn" && ele?.className != "dateInput" && ele?.className != "timeInput"){
+            editOn = true
             ele.setAttribute('contenteditable', true)
         }
     }
 }
 
 function saveTodoItem(ele) {
-    console.log(ele.parentNode.parentNode.parentNode.childNodes)
-    const child_eles = ele.parentNode.parentNode.parentNode.childNodes
+    let child_eles = ele.parentNode.parentNode.parentNode.childNodes
 
+    child_eles = Array.from(child_eles)
+    child_eles = child_eles.filter((ele)=>{
+        return ele?.nodeName  == 'TD' && ele?.className != "edit_btn" && ele?.className != "remove_btn" && ele?.className != "save_btn"
+    })
+    
+    
+    const task = child_eles[0]
+    const date = child_eles[1]
+    const time = child_eles[2]
+    const priority = child_eles[3]
+    const details = child_eles[4]
+
+    const todoItem = {
+        task: task.innerText,
+        date: date.childNodes[1].childNodes[0].value,
+        time: time.childNodes[1].childNodes[0].value,
+        priority: priority.innerText,
+        details: details.innerText
+    }
+
+    
+    save()
+    disableEdit(ele)
+    
+}
+
+function disableEdit(ele){
+    const child_eles = ele.parentNode.parentNode.parentNode.childNodes
+    
     const saveBtn = ele.parentNode.parentNode.getElementsByClassName('save_btn_wrap')[0]
     saveBtn.classList.remove('show')
     saveBtn.classList.add('hide')
 
+    const datePicker = ele.parentNode.parentNode.parentNode.getElementsByClassName('datePicker')[0]
+    console.log(datePicker)
+    console.log(ele.parentNode.parentNode.parentNode)
+    datePicker.classList.remove('show')
+    datePicker.classList.add('hide')
 
-   
+    const timePicker = ele.parentNode.parentNode.parentNode.getElementsByClassName('timePicker')[0]
+    timePicker.classList.remove('show')
+    timePicker.classList.add('hide')
+
     for(let i = 0; i <= child_eles.length; i++){
         const ele = child_eles[i]
-        if(ele?.nodeName  == 'TD'){
+        if(ele?.nodeName  == 'TD' && ele?.className != "edit_btn" && ele?.className != "remove_btn" && ele?.className != "save_btn") {
             ele.setAttribute('contenteditable', false)
         }
     }
