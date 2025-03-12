@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link href="custom.css" rel="stylesheet">
+        <title>API DATA</title>
+        <h1 class>USER DATA</h1>
+    </head>
+    <body>
+        <div id="app"></div>
+        <div id="pagination" class="pagination"></div>
+        <div id="profileCards"></div>
+        <div id="overlay" class="hide">
+          <div class="inner-overlay">
+          <div class="card" id="card">
+            <div class="card-header">
+                <div class="title" id="user_title"></div>
+                <button onclick="closeUserDetails()">&times;</button>
+            </div>
+            <div class="card-body">
+              <div id="profile-info" class="show">
+                <div class="profile-info">
+                  <p class="user_info"><img src="" alt="" id="user_avatar"/></p>
+                  <p class="user_info">First Name: <span id="user_first_name"></span></p>
+                  <p class="user_info">Last Name: <span id="user_last_name"></span></p>
+                  <p class="user_info">Email: <span id="user_email"></span></p>
+                  <button onclick="toggleUserInfo('profile-edit', 'profile-info')">Update</button>
+                </div>
+              </div>     
+              <div id="profile-edit" class="hide">
+                <div class="profile-edit">
+                  <label>First Name</label>
+                  <input type="text" class="user_info" id="form_first_name" placeholder="First Name" value=""/>
+                  <label>Last Name</label>
+                  <input type="text" class="user_info" id="form_last_name" placeholder="Last Name"/>
+                  <label>Email Name</label>
+                  <input type="text" class="user_info" id="form_email" placeholder="Email"/>
+                  <button onclick="toggleUserInfo('profile-info', 'profile-edit')">Back</button>
+                  <button type="submit">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </body>
+    <script src="custom.js"></script>
+</html>
