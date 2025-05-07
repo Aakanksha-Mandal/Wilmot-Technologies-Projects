@@ -1,23 +1,28 @@
 let total_pages = 0;
 let users = [];
 let active_user = {};
+
 async function fetchData(page) {
-    const response = await fetch('https://reqres.in/api/users?page=' + page + '&per_page=10')
-        .then(response => {
-            console.log(response)
-            if (!response.ok) {
-                throw Error("ERROR")
+    try {
+        const response = await fetch('https://reqres.in/api/users?page=' + page + '&per_page=10', {
+            method: 'GET',
+            headers: {
+                'x-api-key': 'reqres-free-v1'
             }
-            return response.json()
-        })
-        .then(data => {
-            return data
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    console.log(response)
-    return response
+        });
+
+        if (!response.ok) {
+            throw new Error("ERROR");
+        }
+
+        const data = await response.json();
+        console.log(data);
+        return data;
+
+    } catch (error) {
+        console.log(error);
+        return {};
+    }
 }
 
 async function generateUsers(page_no = 1) {
@@ -28,31 +33,30 @@ async function generateUsers(page_no = 1) {
     if(users_data.data) {
         let appHtml = ""
         users_data.data.map((user, index) => {
-                const user_string = JSON.stringify(user);
-                appHtml += `
-                <div class="row">
-                    <div class="col">
-                        <p><img src="${user.avatar}" alt="${user.first_name}"/></p>
-                    </div>
-                    <div class="col">
-                        <p>First Name: ${user.first_name}</p>
-                    </div>
-                    <div class="col">
-                        <p>Last Name: ${user.last_name}</p>
-                    </div>
-                    <div class="col">
-                        <p>Email: ${user.email}</p>
-                    </div>
-                    <div class="col">
-                        <button onclick="showUserDetails('${user.id}')">Open</button>
-                    </div>
+            const user_string = JSON.stringify(user);
+            appHtml += `
+            <div class="row">
+                <div class="col">
+                    <p><img src="${user.avatar}" alt="${user.first_name}"/></p>
                 </div>
-                `
+                <div class="col">
+                    <p>First Name: ${user.first_name}</p>
+                </div>
+                <div class="col">
+                    <p>Last Name: ${user.last_name}</p>
+                </div>
+                <div class="col">
+                    <p>Email: ${user.email}</p>
+                </div>
+                <div class="col">
+                    <button onclick="showUserDetails('${user.id}')">Open</button>
+                </div>
+            </div>
+            `
         })
         document.getElementById("app").innerHTML = appHtml
         generatePagination(total_pages)
     }
-
 }
 
 function generatePagination(total_pages) {
@@ -64,7 +68,6 @@ function generatePagination(total_pages) {
 }
 
 generateUsers()
-
 
 function showUserDetails(user_id){
     const user_details = users.filter((user) => {
